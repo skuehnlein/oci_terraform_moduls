@@ -14,8 +14,8 @@ output "nat_gateway_IP" {
 }
 
 output "internet_gateway_OCID" {
-    description = "OCID of the created NAT Gateway"
-    value = join(",", oci_core_nat_gateway.internet_gateway.*.id)
+    description = "OCID of the created Internet Gateway"
+    value = join(",", oci_core_internet_gateway.internet_gateway.*.id)
 } 
 
 output "dynamic_routing_gateway_OCID" {

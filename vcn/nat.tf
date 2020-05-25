@@ -25,6 +25,6 @@ resource "oci_core_route_table" "route_table_nat_gateway" {
 
         #Optionally
         destination = "0.0.0.0/0"
-        destination_type = CIDR_BLOCK
+        destination_type = "CIDR_BLOCK"
     }
 }
