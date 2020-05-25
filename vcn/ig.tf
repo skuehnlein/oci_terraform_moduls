@@ -11,6 +11,8 @@ resource "oci_core_internet_gateway" "internet_gateway" {
 }
 
 resource "oci_core_route_table" "route_table_internet_gateway" {
+    count = var.create_internet_gateway == true ? 1 : 0
+
     #Required
     compartment_id = var.compartment_id
     vcn_id = oci_core_vcn.vcn.id
@@ -19,7 +21,7 @@ resource "oci_core_route_table" "route_table_internet_gateway" {
     display_name = "Route Table for the NAT Gateway"
     route_rules {
         # Required
-        network_entity_id = oci_core_internet_gateway.internet_gateway.id
+        network_entity_id = oci_core_internet_gateway.internet_gateway[0].id
 
         #Optionally
         destination = "0.0.0.0/0"

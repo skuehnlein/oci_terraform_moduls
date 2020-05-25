@@ -10,6 +10,8 @@ resource "oci_core_drg" "dynamic_routing_gateway" {
 }
 
 resource "oci_core_route_table" "drg_route_table" {
+    count = var.create_dynamic_routing_gateway == true ? 1 : 0
+
     #Required
     compartment_id = var.compartment_id
     vcn_id = oci_core_vcn.vcn.id
@@ -18,7 +20,7 @@ resource "oci_core_route_table" "drg_route_table" {
     display_name = "Route Table for the NAT Gateway"
     route_rules{
         # Required
-        network_entity_id = oci_core_drg.dynamic_routing_gateway.id
+        network_entity_id = oci_core_drg.dynamic_routing_gateway[0].id
 
         #Optionally
         destination = "0.0.0.0/0"
@@ -27,11 +29,13 @@ resource "oci_core_route_table" "drg_route_table" {
 }
 
 resource "oci_core_drg_attachment" "drg_attachment" {
+    count = var.create_dynamic_routing_gateway == true ? 1 : 0
+
     #Required
-    drg_id = oci_core_drg.dynamic_routing_gateway.id
+    drg_id = oci_core_drg.dynamic_routing_gateway[0].id
     vcn_id = oci_core_vcn.vcn.id
 
     #Required
     display_name = "Attachment of the Dynamic Route Table to the VCN"
-    route_table_id = oci_core_route_table.drg_route_table.id
+    route_table_id = oci_core_route_table.drg_route_table[0].id
 }
