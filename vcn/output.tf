@@ -5,21 +5,21 @@ output "vcn_OCID" {
 
 output "nat_gateway_OCID" {
     description = "OCID of the created NAT Gateway"
-    oci_core_nat_gateway.nat_gateway.id
+    value = oci_core_nat_gateway.nat_gateway.id
 } 
 
 output "nat_gateway_IP" {
     description = "IP address of the NAT Gateway"
-    oci_core_nat_gateway.nat_gateway.nat_id
+    value = oci_core_nat_gateway.nat_gateway.nat_ip
 }
 
 output "internet_gateway_OCID" {
     description = "OCID of the created NAT Gateway"
-    oci_core_nat_gateway.internet_gateway.id
+    value = oci_core_nat_gateway.internet_gateway.id
 } 
 
 output "drg_OCID" {
     description = "OCID of the created Dynamic Routing Gateway"
-    oci_core_drg.dynamic_routing_gateway.id
+    value = oci_core_drg.dynamic_routing_gateway.id
 } 
 
