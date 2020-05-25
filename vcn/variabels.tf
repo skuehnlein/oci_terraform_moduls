@@ -15,7 +15,7 @@ variable "vcn_display_name" {
     type        = string
 }
 
-variable "dns_label" {
+variable "vcn_dns_label" {
     description = "A DNS label for the VCN, used in conjunction "
     type        = string
 }
