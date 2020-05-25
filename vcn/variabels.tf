@@ -10,7 +10,7 @@ variable "vcn_cidr" {
     type        = string
 }
 
-variable "display_name" {
+variable "vcn_display_name" {
     description = "Name for the VCN"
     type        = string
 }
@@ -62,17 +62,5 @@ variable "create_dynamic_routing_gateway" {
 
 variable "drg_display_name" {
     description = "Name for the Dynamic Routing Gateway"
-    type        = string
-}
-variable "" {
-    description = ""
-    type        = string
-}
-variable "" {
-    description = ""
-    type        = string
-}
-variable "" {
-    description = ""
     type        = string
 }
