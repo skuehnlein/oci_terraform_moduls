@@ -4,7 +4,7 @@ variable "compartment_id" {
     type        = string
 }
 
-# vcn parameters
+# VCN Parameters
 variable "vcn_cidr" {
     description = "CIDR block of the VCN"
     type        = string
@@ -20,6 +20,7 @@ variable "vcn_dns_label" {
     type        = string
 }
 
+# NAT Gateway Parameters
 variable "create_nat_gateway" {
     description = "Flag, whether to create a nat gateway in the VCN"
     type        = bool
@@ -31,6 +32,7 @@ variable "nat_gateway_display_name" {
     type        = string
 }
 
+# Internet Gateway Parameters
 variable "create_internet_gateway" {
     description = "Flag, whether to create a internet gateway in the VCN"
     type        = bool

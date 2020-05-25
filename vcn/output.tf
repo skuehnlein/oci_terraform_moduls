@@ -18,7 +18,7 @@ output "internet_gateway_OCID" {
     value = oci_core_nat_gateway.internet_gateway.id
 } 
 
-output "drg_OCID" {
+output "dynamic_routing_gateway_OCID" {
     description = "OCID of the created Dynamic Routing Gateway"
     value = oci_core_drg.dynamic_routing_gateway.id
 } 
