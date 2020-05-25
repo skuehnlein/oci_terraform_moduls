@@ -25,7 +25,7 @@ resource "oci_core_route_table" "route_table_internet_gateway" {
 
         #Optionally
         destination = "0.0.0.0/0"
-        destination_tye = CIDR_BLOCK
+        destination_type = CIDR_BLOCK
     }
 
 }
