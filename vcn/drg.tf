@@ -18,7 +18,7 @@ resource "oci_core_route_table" "drg_route_table" {
     display_name = "Route Table for the NAT Gateway"
     route_rules{
         # Required
-        network_entity_id = oci_core_nat_gateway.nat_gateway.id
+        network_entity_id = oci_core_drg.dynamic_routing_gateway.id
 
         #Optionally
         destination = "0.0.0.0/0"
