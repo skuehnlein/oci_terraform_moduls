@@ -23,7 +23,6 @@ resource "oci_core_route_table" "drg_route_table" {
         #Optionally
         destination = "0.0.0.0/0"
         destination_tye = CIDR_BLOCK
-        network_entity_id = oci_core_nat_gateway.dynamic_routing_gateway.id
     }
 }
 
