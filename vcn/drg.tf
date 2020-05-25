@@ -6,6 +6,6 @@ resource "oci_core_drg" "dynamic_routing_gateway" {
     compartment_id = var.compartment_id
 
     # Optional
-    display_name = var.drg_gateway_display_name
+    display_name = var.drg_display_name
   
 }
