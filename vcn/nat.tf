@@ -10,7 +10,7 @@ resource "oci_core_nat_gateway" "nat_gateway" {
     display_name = var.nat_gateway_display_name
 }
 
-resource "oci_core_route_table" "route_table_nat_gateway" {
+resource "oci_core_route_table" "nat_gateway_route_table" {
     count = var.create_nat_gateway == true ? 1 : 0
 
     #Required
@@ -28,3 +28,4 @@ resource "oci_core_route_table" "route_table_nat_gateway" {
         destination_type = "CIDR_BLOCK"
     }
 }
+

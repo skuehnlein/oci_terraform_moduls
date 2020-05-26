@@ -10,7 +10,7 @@ resource "oci_core_internet_gateway" "internet_gateway" {
     display_name = var.intenet_gateway_display_name
 }
 
-resource "oci_core_route_table" "route_table_internet_gateway" {
+resource "oci_core_route_table" "internet_gateway_route_table" {
     count = var.create_internet_gateway == true ? 1 : 0
 
     #Required
@@ -18,7 +18,7 @@ resource "oci_core_route_table" "route_table_internet_gateway" {
     vcn_id = oci_core_vcn.vcn.id
 
     #Optional
-    display_name = "Route Table for the NAT Gateway"
+    display_name = "Route Table for the Internet Gateway"
     route_rules {
         # Required
         network_entity_id = oci_core_internet_gateway.internet_gateway[0].id
@@ -27,5 +27,5 @@ resource "oci_core_route_table" "route_table_internet_gateway" {
         destination = "0.0.0.0/0"
         destination_type = "CIDR_BLOCK"
     }
-
 }
+

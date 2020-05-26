@@ -17,7 +17,7 @@ resource "oci_core_route_table" "drg_route_table" {
     vcn_id = oci_core_vcn.vcn.id
 
     #Optional
-    display_name = "Route Table for the NAT Gateway"
+    display_name = "Route Table for the Dynamic Routing Gateway"
     route_rules{
         # Required
         network_entity_id = oci_core_drg.dynamic_routing_gateway[0].id
@@ -38,4 +38,8 @@ resource "oci_core_drg_attachment" "drg_attachment" {
     #Required
     display_name = "Attachment of the Dynamic Route Table to the VCN"
     route_table_id = oci_core_route_table.drg_route_table[0].id
+}
+
+output "drg_attachment_OCID"{
+    oci_core_drg_attachment.drg_attachment[0].id
 }
