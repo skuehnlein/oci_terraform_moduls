@@ -41,5 +41,5 @@ resource "oci_core_drg_attachment" "drg_attachment" {
 }
 
 output "drg_attachment_OCID"{
-    oci_core_drg_attachment.drg_attachment[0].id
+    value = oci_core_drg_attachment.drg_attachment[0].id
 }
