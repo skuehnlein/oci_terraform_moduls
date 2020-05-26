@@ -35,5 +35,5 @@ output "nat_route_table_OCID" {
 
 output "internet_gateway_route_table_OCID" {
     description = "OCID of the Route Table for the Internet Gateway"
-    value = join(",",oci_core_route_table.route_table_internet_gateway.*.id)
+    value = join(",",oci_core_route_table.internet_gateway_route_table.*.id)
 }
