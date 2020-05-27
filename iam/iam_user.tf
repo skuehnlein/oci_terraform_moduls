@@ -1,5 +1,5 @@
 # Creates all requiered users
-resource "oci_identity_user" "user" {
+resource "oci_identity_user" "users" {
     for_each = var.iam_users
 
     # Required
