@@ -1,6 +1,6 @@
 # Creates all requiered users
 resource "oci_identity_user" "user" {
-
+    name = "User"
     compartment_id = var.tenancy_OCID
 
     dynamic "iam_users" {
