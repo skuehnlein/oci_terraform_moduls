@@ -3,10 +3,10 @@ resource "oci_identity_user" "user" {
     name = "User"
     compartment_id = var.tenancy_OCID
 
-    dynamic "iam_users" {
+    dynamic "user" {
         for_each var.iam_users
         content {
-            name = iam_users.value["user_name"]
+            name = user.value["user_name"]
             description = "OCI IAM User for "
         }
     }
