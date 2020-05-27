@@ -7,7 +7,7 @@ resource "oci_identity_user" "user" {
         for_each var.iam_users
         content {
             name = iam_users.value["user_name"]
-            description = "OCI IAM User for ${iam_users.value[\"user_email\"]}"
+            description = "OCI IAM User for "
         }
     }
 }
