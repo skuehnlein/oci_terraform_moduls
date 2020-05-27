@@ -5,5 +5,5 @@ resource "oci_identity_user" "users" {
     # Required
     compartment_id = var.tenancy_OCID
     name = each.value["user_name"]
-    description = "OCI IAM User for  ${each.value["user_email"]} "
+    description = " IAM User for  ${each.value["user_email"]} "
 }
