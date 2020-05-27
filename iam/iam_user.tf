@@ -1,6 +1,6 @@
 # Creates all requiered users
 resource "oci_identity_user" "user" {
-    for_each var.iam_users
+    for_each = var.iam_users
 
     # Required
     compartment_id = var.tenancy_OCID
