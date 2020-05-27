@@ -1,12 +1,10 @@
 # Creates all requiered users
 resource "oci_identity_user" "user" {
-    compartment_id = var.tenancy_OCID
+    for_each var.iam_users
 
-    dynamic "user" {
-        for_each = var.iam_users
-        content {
-            name = user.value["user_name"]
-            description = "OCI IAM User for "
-        }
-    }
+    # Required
+    compartment_id = var.tenancy_OCID
+    name = each.value["user_name"]
+    description = "OCI IAM User for " each.value["user_email"]
+
 }
