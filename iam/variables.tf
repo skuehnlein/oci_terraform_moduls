@@ -7,7 +7,7 @@ variable "iam_users" {
     }))
 }
 
-variabel "tenancy_OCID" {
+variable "tenancy_OCID" {
     description = "The OCID of the tenancy"
     type = string
 }
