@@ -11,7 +11,7 @@ variable "iam_users" {
     }))
 }
 
-varaible "iam_groups" {
+variable "iam_groups" {
     description = "The definition of the groups which should be created"
     type = map(object( {
         group_name = string,
