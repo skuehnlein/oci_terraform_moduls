@@ -1,6 +1,6 @@
 output "iam_users" {
     description = "created users in the tenancy"
-    value = oci_identity_user.users
+    value = join(',',oci_identity_user.users.*.name)
   
 }
 
