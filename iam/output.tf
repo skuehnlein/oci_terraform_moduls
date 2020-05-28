@@ -8,8 +8,7 @@ output "iam_users" {
 
 output "iam_groups" {
     description = "created groups in the tenancy"
-    value = join(", ", oci_identity_users.*.group.name)
-    
+    value = values(oci_identity_user.users)[*].user.name
 #    value = {
 #        for user in oci_identity_user.users:
 #        user.name => user.id
