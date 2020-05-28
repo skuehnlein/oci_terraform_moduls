@@ -21,11 +21,10 @@ variable "iam_groups" {
 
 variable "iam_users_group_membership" {
     description = "The mapping between the users and the groups"
-    type = map(list(string))
-    #type = map(object( {
-    #    user_name = string,
-    #    group_name =  string
-    #}))
+    type = map(object( {
+        user_name = string,
+        group_name =  string
+    }))
 }
 
 
