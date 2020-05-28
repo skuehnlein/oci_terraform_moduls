@@ -19,4 +19,12 @@ variable "iam_groups" {
     }))
 }
 
+variable "iam_users_group_membership" {
+    description = "The mapping between the users and the groups"
+    type = map( {
+        user_name = string,
+        group_name =  string
+    })
+}
+
 
