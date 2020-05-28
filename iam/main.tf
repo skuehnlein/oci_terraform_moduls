@@ -33,6 +33,6 @@ resource "oci_identity_group" "groups" {
 resource "oci_identity_user_group_membership" "membership" {
     for_each = var.iam_users_group_membership
 
-    user_id = lookup(oci_identity_user.users, each.value[user_name])
-    group_id  = lookup(oci_identity_group.groups, each.value[group_name])
+    user_id = lookup(oci_identity_user.users, each.value["user_name"])
+    group_id  = lookup(oci_identity_group.groups, each.value["group_name"])
 }
