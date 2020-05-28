@@ -30,9 +30,20 @@ resource "oci_identity_group" "groups" {
 }
 
 #Assigns the users to a group
+data  "oci_identity_users" "users" {
+    # Required
+    compartment_id = var.tenancy_OCID
+}
+
+data "oci_identity_groups" "groups" {
+    # Required
+    compartment_id = var.tenancy_OCID
+}
+
+
 resource "oci_identity_user_group_membership" "membership" {
     for_each = var.iam_users_group_membership
 
-    user_id = lookup(values(oci_identity_user.users)[*], each.value["user_name"]).id
-    group_id  = lookup(values(oci_identity_group.groups)[*], each.value["group_name"]).id
+    user_id = lookup(values(oci_identity_groups.users.[*].name), each.value["user_name"]).id
+    group_id  = lookup(values(oci_identity_groups.groups.[*].name), each.value["group_name"]).id
 }
