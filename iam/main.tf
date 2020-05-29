@@ -8,8 +8,6 @@ terraform {
     }
 }
 
-
-
 # Creates all requiered users
 resource "oci_identity_user" "users" {
     for_each = var.iam_users
@@ -29,8 +27,7 @@ resource "oci_identity_group" "groups" {
     description = each.value["group_description"]
 }
 
-#Assigns the users to a group
-data  "oci_identity_users" "users" {
+data "oci_identity_users" "users" {
     # Required
     compartment_id = var.tenancy_OCID
 }
@@ -40,6 +37,7 @@ data "oci_identity_groups" "groups" {
     compartment_id = var.tenancy_OCID
 }
 
+#Assigns the users to a group
 resource "oci_identity_user_group_membership" "membership" {
     for_each = var.iam_users_group_membership
 
