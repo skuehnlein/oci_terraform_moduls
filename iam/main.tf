@@ -37,11 +37,16 @@ data "oci_identity_groups" "groups" {
     compartment_id = var.tenancy_OCID
 }
 
+locals {
+    group_ids = contact(flatten(data.oci_identity_groups.groups.*.groups), list(map("id","")))
+    user_ids = contact(flatten(data.oci_identity_users.users.*.users), list(map("id","")))
+}
+
 #Assigns the users to a group
 resource "oci_identity_user_group_membership" "membership" {
     for_each = var.iam_users_group_membership
 
     # Required
-    user_id = lookup(zipmap(data.oci_identity_users.*.users.name,data.oci_identity_users.users.users[*].id), each.value["user_name"])
-    group_id  = lookup(zipmap(data.oci_identity_groups.groups.groups[*].name,data.oci_identity_groups.groups.groups[*].id), each.value["group_name"])    
+    user_id = lookup(local.user_ids, each.value["user_name"])
+    group_id  = lookup(local.group_ids), each.value["group_name"])    
 }
