@@ -42,6 +42,6 @@ resource "oci_identity_user_group_membership" "membership" {
     for_each = var.iam_users_group_membership
 
     # Required
-    user_id = lookup(zipmap(data.oci_identity_users.users.*.name,data.oci_identity_users.users.users[*].id), each.value["user_name"])
+    user_id = lookup(zipmap(data.oci_identity_users.*.users.name,data.oci_identity_users.users.users[*].id), each.value["user_name"])
     group_id  = lookup(zipmap(data.oci_identity_groups.groups.groups[*].name,data.oci_identity_groups.groups.groups[*].id), each.value["group_name"])    
 }
