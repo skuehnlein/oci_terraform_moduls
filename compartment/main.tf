@@ -19,7 +19,7 @@ data "oci_identity_compartments" "compartments" {
 
 resource "oci_identity_compartment" "compartment" {
 
-    for each = var.compartments
+    for_each = var.compartments
 
     # Required
     compartment_id = lookup(zipmap(values(oci_identity_compartments.compartments)[*].name, values(oci_identity_compartments.compartments)[*].id),each.value["root_compartment"])
