@@ -18,7 +18,7 @@ data "oci_identity_compartments" "all_compartments" {
 }
 
 output "oci_compartments" {
-    value = oci_identity_compartments.all_compartments
+    value = data.oci_identity_compartments.all_compartments
 }
 
 #resource "oci_identity_compartment" "compartment" {
