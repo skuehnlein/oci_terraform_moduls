@@ -17,12 +17,12 @@ data "oci_identity_compartments" "all_compartments" {
     compartment_id_in_subtree = true
 }
 
-resource "oci_identity_compartment" "compartment" {
+#resource "oci_identity_compartment" "compartment" {
 
-    for_each = var.compartments
+#    for_each = var.compartments
 
     # Required
-    compartment_id = lookup(zipmap(data.oci_identity_compartments.all_compartments.compartments[*].name, data.oci_identity_compartments.all_compartments.compartments[*].id),each.value["root_compartment"])
-    description = each.value["compartment_description"]
-    name = each.value["compartment_name"]
-}
+#    compartment_id = lookup(zipmap(data.oci_identity_compartments.all_compartments.compartments[*].name, data.oci_identity_compartments.all_compartments.compartments[*].id),each.value["root_compartment"])
+#    description = each.value["compartment_description"]
+#    name = each.value["compartment_name"]
+#}
