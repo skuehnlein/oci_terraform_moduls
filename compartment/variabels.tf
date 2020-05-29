@@ -8,6 +8,6 @@ variable "compartments" {
     type = map(object( {
         root_compartment = string,
         compartment_name = string,
-        comparmtent_description = string
+        compartment_description = string
     }))
 }
