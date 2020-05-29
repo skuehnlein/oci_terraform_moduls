@@ -48,5 +48,5 @@ resource "oci_identity_user_group_membership" "membership" {
 
     # Required
     user_id = lookup(local.user_ids, each.value["user_name"])
-    group_id  = lookup(local.group_ids), each.value["group_name"])    
+    group_id  = lookup(local.group_ids, each.value["group_name"])    
 }
