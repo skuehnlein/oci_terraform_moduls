@@ -17,6 +17,9 @@ data "oci_identity_compartments" "all_compartments" {
     compartment_id_in_subtree = true
 }
 
+output "compartments" {
+    value = oci_identity_compartments.all_compartments
+}
 
 #resource "oci_identity_compartment" "compartment" {
 
