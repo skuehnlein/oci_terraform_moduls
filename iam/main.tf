@@ -38,8 +38,8 @@ data "oci_identity_groups" "groups" {
 }
 
 locals {
-    group_ids = zipmap(data.oci_identity_groups.groups.groups[*].name, data.oci_identity_groups.groups.groups[*].id))
-    user_ids = zipmap(data.oci_identity_users.users.users[*].name, data.oci_identity_users.users.users[*].id))
+    group_ids = zipmap(data.oci_identity_groups.groups.groups[*].name, data.oci_identity_groups.groups.groups[*].id)
+    user_ids = zipmap(data.oci_identity_users.users.users[*].name, data.oci_identity_users.users.users[*].id)
 }
 
 #Assigns the users to a group
