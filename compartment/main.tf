@@ -8,7 +8,7 @@ terraform {
     }
 }
 
-data "oci_identity_compartments" "all_compartments" {
+output "oci_identity_compartments" "all_compartments" {
     # Required
     compartment_id = var.tenancy_OCID
 
