@@ -17,9 +17,7 @@ data "oci_identity_compartments" "all_compartments" {
     compartment_id_in_subtree = true
 }
 
-output "compartments" {
-    value = data.oci_identity_compartments.all_compartments.compartments[*].name
-}
+
 #resource "oci_identity_compartment" "compartment" {
 
 #    for_each = var.compartments
