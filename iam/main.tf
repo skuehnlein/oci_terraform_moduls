@@ -38,8 +38,8 @@ data "oci_identity_groups" "groups" {
 }
 
 locals {
-    group_ids = concat(flatten(data.oci_identity_groups.groups.*.groups), list(map("id","")))
-    user_ids = concat(flatten(data.oci_identity_users.users.*.users), list(map("id","")))
+    group_ids = concat(flatten(data.oci_identity_groups.groups.groups[*]), list(map("id","")))
+    user_ids = concat(flatten(data.oci_identity_users.users.users[*]), list(map("id","")))
 }
 
 #Assigns the users to a group
