@@ -1,3 +1,4 @@
 output "compartments" {
-    value = oci_identity_compartment.compartment.compartment[*]
+    value = zipmap(values(oci_identity_compartment.compartment)[*].name,values(oci_identity_compartment.compartment)[*].id)
+
 }
