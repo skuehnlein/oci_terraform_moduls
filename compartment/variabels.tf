@@ -5,7 +5,7 @@ variable "tenancy_OCID" {
 
 variable "compartments" {
     description = "The definition of the compartments which should be cretated"
-    type = list(object( {
+    type = map(object( {
         root_compartment = string,
         compartment_name = string,
         compartment_description = string
