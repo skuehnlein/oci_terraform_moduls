@@ -25,8 +25,8 @@ resource "oci_identity_policy" "compartment_policies" {
     for_each = var.compartment_policies
 
     #Required
-    compartment_id = lookup(local.all_compartment_ids,each_value["compartment_name"])
-    name = each_value["name"]
-    description = each_value["description"]
-    statements = each_value["statements"]
+    compartment_id = lookup(local.all_compartment_ids,each.value["compartment_name"])
+    name = each.value["name"]
+    description = each.value["description"]
+    statements = each.value["statements"]
 }
