@@ -25,4 +25,5 @@ variable "all_compartment_policies" {
         compartment_name = string,
         description = string,
         statement = list(string)
+    }))
 }
