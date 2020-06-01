@@ -16,7 +16,7 @@ resource "oci_identity_compartment" "compartment" {
     #for_each = var.compartments
     count = length(var.compartments)
     # Required
-    compartment_id = var.is_top_level_compartemt ? var.tenancy_OCID : lookup(local.compartment_ids,var.compartments[*].root_compartment)
-    description = var.compartments[*].compartment_description
-    name = var.compartments[*].compartment_name
+    compartment_id = var.is_top_level_compartemt ? var.tenancy_OCID : lookup(local.compartment_ids,var.compartments.*.root_compartment)
+    description = var.compartments.*.compartment_description
+    name = var.compartments.*.compartment_name
 }
