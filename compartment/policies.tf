@@ -1,4 +1,4 @@
-data "oci_identity_compartments" "compartments" {
+data "oci_identity_compartments" "all_compartments" {
     # Required
     compartment_id = var.tenancy_OCID
 
@@ -8,7 +8,7 @@ data "oci_identity_compartments" "compartments" {
 }
 
 locals {
-    all_compartment_ids = zipmap(data.oci_identity_compartments.compartments.compartments[*].name, data.oci_identity_compartments.compartments.compartments[*].id)
+    all_compartment_ids = zipmap(data.oci_identity_compartments.all_compartments.compartments[*].name, data.oci_identity_compartments.compartments.compartments[*].id)
 }
 
 resource "oci_identity_policy" "compartment_policies" {
