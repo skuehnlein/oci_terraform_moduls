@@ -9,6 +9,6 @@ variable "compartment_policies" {
         name = string,
         compartment_name = string,
         description = string,
-        statement = list(string)
+        statements = list(string)
     }))
 }
