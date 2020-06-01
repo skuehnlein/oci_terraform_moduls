@@ -21,8 +21,8 @@ variable "is_top_level_compartemt" {
 variable "all_compartment_policies" {
     description = "The definition of all policies which should be created"
     type = map(object({
-        name = string
-        compartment_name = string
-        description = string
+        name = string,
+        compartment_name = string,
+        description = string,
         statement = list(string)
 }
