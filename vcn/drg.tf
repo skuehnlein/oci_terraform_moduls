@@ -3,7 +3,7 @@ resource "oci_core_drg" "dynamic_routing_gateway" {
     count = var.create_dynamic_routing_gateway == true ? 1 : 0
 
     #Required
-    compartment_id = var.compartment_id
+    compartment_id = lookup(local.compartment_ids,var.compartment_name)
 
     # Optional
     display_name = var.drg_display_name

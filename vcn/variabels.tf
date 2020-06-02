@@ -4,6 +4,11 @@ variable "compartment_name" {
     type        = string
 }
 
+variable "tenancy_OCID" {
+    description = "The OCID of the tenant"
+    type        = string
+}
+
 # VCN Parameters
 variable "vcn_cidr" {
     description = "CIDR block of the VCN"
