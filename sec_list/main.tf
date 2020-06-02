@@ -44,7 +44,7 @@ resource "oci_core_security_list" "security_lists" {
     dynamic "tcp_ingress_security_rules" {
         for_each = var.tcp_ingress_rules
         content {
-            source = ingress_security_rules.value["source"]
+            source = tcp_ingress_security_rules.value["source"]
             protocol =  "6"
         }
     }
@@ -52,15 +52,15 @@ resource "oci_core_security_list" "security_lists" {
     dynamic "icmp_ingress_security_rules" {
         for_each = var.icmp_ingress_rules
         content {
-            source = ingress_security_rules.value["source"]
-            protocol =  "1""
+            source = icmp_ingress_security_rules.value["source"]
+            protocol =  "1"
         }
     }
 
-        dynamic "udp_ingress_security_rules" {
+    dynamic "udp_ingress_security_rules" {
         for_each = var.udp_ingress_rules
         content {
-            source = ingress_security_rules.value["source"]
+            source = udp_ingress_security_rules.value["source"]
             protocol =  "1""
         }
     }
