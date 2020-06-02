@@ -18,15 +18,29 @@ variable "security_list_display_name" {
     type = string
 }
 
-variable "ingress_rules" {
-    description = "List of all ingress rules of the security list"
+variable "tcp_ingress_rules" {
+    description = "List of all ingress rules of the security list - protocol: TCP"
     type = list(object({
-        protocol = string
         source =  string
 
     }))
 }
 
+variable "icmp_ingress_rules" {
+    description = "List of all ingress rules of the security list - protocol: ICMP"
+    type = list(object({
+        source =  string
+
+    }))
+}
+
+variable "udp_ingress_rules" {
+    description = "List of all ingress rules of the security list - protocol: ICMP"
+    type = list(object({
+        source =  string
+
+    }))
+}
 variable "egress_rules" {
     description = "List of all egress rules of the security list"
     type = list(object({

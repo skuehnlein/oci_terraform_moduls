@@ -21,6 +21,9 @@ locals {
     compartment_ids = zipmap(data.oci_identity_compartments.compartments.compartments[*].name, data.oci_identity_compartments.compartments.compartments[*].id)
 }
 
+
+
+
 resource "oci_core_security_list" "security_lists" {
 
     # Required
@@ -38,11 +41,27 @@ resource "oci_core_security_list" "security_lists" {
         }
     }
 
-    dynamic "ingress_security_rules" {
-        for_each = var.ingress_rules
+    dynamic "tcp_ingress_security_rules" {
+        for_each = var.tcp_ingress_rules
         content {
             source = ingress_security_rules.value["source"]
-            protocol =  ingress_security_rules.value["protocol"]
+            protocol =  "6"
+        }
+    }
+
+    dynamic "icmp_ingress_security_rules" {
+        for_each = var.icmp_ingress_rules
+        content {
+            source = ingress_security_rules.value["source"]
+            protocol =  "1""
+        }
+    }
+
+        dynamic "udp_ingress_security_rules" {
+        for_each = var.udp_ingress_rules
+        content {
+            source = ingress_security_rules.value["source"]
+            protocol =  "1""
         }
     }
 
