@@ -61,7 +61,7 @@ resource "oci_core_security_list" "security_lists" {
         for_each = var.udp_ingress_rules
         content {
             source = ingress_security_rules.value["source"]
-            protocol =  1
+            protocol =  17
         }
     }
 
