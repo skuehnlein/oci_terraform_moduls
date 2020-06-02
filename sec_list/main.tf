@@ -28,7 +28,7 @@ resource "oci_core_security_list" "security_lists" {
     vcn_id = var.vcn_OCID
     
     #Optional
-    display_name = var.display_name
+    display_name = var.security_list_display_name
     
     dynamic "egress_security_rules" {
         for_each = var.egress_security_rules
