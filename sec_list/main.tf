@@ -33,16 +33,16 @@ resource "oci_core_security_list" "security_lists" {
     dynamic "egress_security_rules" {
         for_each = var.egress_rules
         content {
-            destination = egress.destination
-            protocol =  egress.protocol
+            destination = egress_security_rules.value["destination"]
+            protocol =  egress_security_rules.value["protocol"]
         }
     }
 
-    dynamic "ingress_security_rules " {
+    dynamic "ingress_security_rules" {
         for_each = var.ingress_rules
         content {
-            destination = ingress.destination
-            protocol =  ingress.protocol
+            destination = ingress_security_rules.value["estination"]
+            protocol =  ingringress_security_rulesess.value["protocol"]
         }
     }
 
