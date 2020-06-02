@@ -23,10 +23,10 @@ output "dynamic_routing_gateway_OCID" {
     value = join(",", oci_core_drg.dynamic_routing_gateway.*.id)
 } 
 
-output "drg_route_table_OCID" {
-    description = "OCID of the Route Table for the Dynamic Routing Gateway"
-    value = join(",",oci_core_route_table.drg_route_table.*.id)
-}
+#output "drg_route_table_OCID" {
+#    description = "OCID of the Route Table for the Dynamic Routing Gateway"
+#    value = join(",",oci_core_route_table.drg_route_table.*.id)
+#}
 
 output "nat_route_table_OCID" {
     description = "OCID of the Route Table for the Nat Gateway"
