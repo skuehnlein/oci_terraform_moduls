@@ -22,7 +22,22 @@ locals {
 }
 
 resource "oci_core_security_list" "security_lists" {
-    #Required
-    compartment_id = 
-    vcn_id = var.vcn_id
+
+    # Required
+    compartment_id = lookup(local.compartment_ids,var.compartment_name)
+    vcn_id = var.vcn_OCID
+    
+    #Optional
+    display_name = var.display_name
+    
+    for ingress in var.ingress_rules {
+        destination = ingress.destination
+        protocol =  ingress.protocol
+
+    }
+
+    for engress in var.engress_rules {
+        destination = engress.destination
+        protocol =  engress.protocol
+    }
 }
