@@ -42,7 +42,7 @@ resource "oci_core_security_list" "security_lists" {
         for_each = var.ingress_rules
         content {
             source = ingress_security_rules.value["source"]
-            protocol =  ingringress_security_rulesess.value["protocol"]
+            protocol =  ingress_security_rules.value["protocol"]
         }
     }
 
