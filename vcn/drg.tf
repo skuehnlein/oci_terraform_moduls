@@ -13,7 +13,7 @@ resource "oci_core_route_table" "drg_route_table" {
     count = var.create_dynamic_routing_gateway == true ? 1 : 0
 
     #Required
-    compartment_id = var.compartment_id
+    compartment_id =  lookup(local.compartment_ids,var.compartment_name)
     vcn_id = oci_core_vcn.vcn.id
 
     #Optional
