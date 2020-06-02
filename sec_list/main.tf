@@ -28,7 +28,7 @@ resource "oci_core_security_list" "security_lists" {
     vcn_id = var.vcn_OCID
     
     #Optional
-    display_name = var.security_list_display_name
+    display_name = var.ingress_rules
     
     dynamic "egress_security_rules" {
         for_each = var.egress_security_rules
@@ -39,7 +39,7 @@ resource "oci_core_security_list" "security_lists" {
     }
 
     dynamic "ingress_security_rules " {
-        for_each = var.ingress_security_rules
+        for_each = var.ingress_rules
         content {
             destination = ingress.destination
             protocol =  ingress.protocol
