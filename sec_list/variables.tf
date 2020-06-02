@@ -31,7 +31,7 @@ variable "egress_rules" {
     description = "List of all egress rules of the security list"
     type = list(object({
         protocol = string
-        source = string
+        destination = string
 
     }))
 }
