@@ -35,9 +35,9 @@ resource "oci_core_drg_attachment" "drg_attachment" {
     drg_id = oci_core_drg.dynamic_routing_gateway[0].id
     vcn_id = oci_core_vcn.vcn.id
 
-    #Required
+    #Optional
     display_name = "Attachment of the Dynamic Route Table to the VCN"
-    route_table_id = oci_core_route_table.drg_route_table[0].id
+    #route_table_id = oci_core_route_table.drg_route_table[0].id
 }
 
 output "drg_attachment_OCID"{
