@@ -30,14 +30,20 @@ resource "oci_core_security_list" "security_lists" {
     #Optional
     display_name = var.display_name
     
-    for ingress in var.ingress_rules {
-        destination = ingress.destination
-        protocol =  ingress.protocol
-
+    dynamic "egress_security_rules" {
+        for_each = var.egress_security_rules
+        content {
+            destination = engress.destination
+            protocol =  engress.protocol
+        }
     }
 
-    for engress in var.engress_rules {
-        destination = engress.destination
-        protocol =  engress.protocol
+    dynamic "ingress_security_rules " {
+        for_each = var.ingress_security_rules
+        content {
+            destination = ingress.destination
+            protocol =  ingress.protocol
+        }
     }
+
 }
