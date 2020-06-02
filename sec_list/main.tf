@@ -31,10 +31,10 @@ resource "oci_core_security_list" "security_lists" {
     display_name = var.ingress_rules
     
     dynamic "egress_security_rules" {
-        for_each = var.egress_security_rules
+        for_each = var.egress_rules
         content {
-            destination = engress.destination
-            protocol =  engress.protocol
+            destination = egress.destination
+            protocol =  egress.protocol
         }
     }
 
