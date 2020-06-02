@@ -8,17 +8,16 @@ data "oci_identity_compartments" "compartments" {
     compartment_id_in_subtree = true
 }
 
-data "null_data_source" "compartment_OCID" {
-    inputs = {
-        compartment_OCID = lookup(zipmap(values(oci_identity_compartments.compartments)[*].name,values(oci_identity_compartments.compartments)[*].id),var.Compartment_name)
-    }
+locals {
+    compartment_ids = zipmap(data.oci_identity_compartments.compartments.compartments[*].name, data.oci_identity_compartments.compartments.compartments[*].id)
 }
+
 
 # Creates the VCN
 resource "oci_core_vcn" "vcn" {
     # Required
     cidr_block = var.vcn_cidr
-    compartment_id = data.null_data_source.values.outputs["compartment_OCID"].id
+    compartment_id = lookup(local.compartment_ids,var.compartment_name)
 
     # Optional
     display_name = var.vcn_display_name
