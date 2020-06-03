@@ -40,13 +40,14 @@ resource "oci_core_security_list" "security_lists" {
             destination_type = tcp_egress_iterator.value["destination_type"]
             protocol =  6
             stateless = tcp_egress_iterator.value["stateless"]
-        }
+        
 
-        dynamic "tcp_options" {
-            for_each = tcp_egress_iterator.value["destination_port"] == -1 ? [] : list[1]
-            content{
-                min = tcp_egress_iterator.value["destination_port"]
-                max = tcp_egress_iterator.value["destination_port"]
+            dynamic "tcp_options" {
+                for_each = tcp_egress_iterator.value["destination_port"] == -1 ? [] : list[1]
+                content{
+                    min = tcp_egress_iterator.value["destination_port"]
+                    max = tcp_egress_iterator.value["destination_port"]
+                }
             }
         }
     }
@@ -74,13 +75,14 @@ resource "oci_core_security_list" "security_lists" {
             destination_type = udp_egress_iterator.value["destination_type"]
             protocol =  17
             stateless = udp_egress_iterator.value["stateless"]
-        }
+        
 
-        dynamic "udp_options" {
-            for_each = udp_egress_iterator.value["destination_port"] == -1 ? [] : list[1]
-            content{
-                min = udp_egress_iterator.value["destination_port"]
-                max = udp_egress_iterator.value["destination_port"]
+           dynamic "udp_options" {
+                for_each = udp_egress_iterator.value["destination_port"] == -1 ? [] : list[1]
+                content{
+                    min = udp_egress_iterator.value["destination_port"]
+                    max = udp_egress_iterator.value["destination_port"]
+                }
             }
         }
     }
@@ -95,13 +97,13 @@ resource "oci_core_security_list" "security_lists" {
             source_type = tcp_ingress_iterator.value["source_type"]
             protocol =  6
             stateless = tcp_ingress_iterator.value["stateless"]
-        }
-
-        dynamic "tcp_options" {
-            for_each = tcp_ingress_iterator.value["destination_port"] == -1 ? [] : list[1]
-            content{
-                min = tcp_ingress_iterator.value["destination_port"]
-                max = tcp_ingress_iterator.value["destination_port"]
+        
+            dynamic "tcp_options" {
+                for_each = tcp_ingress_iterator.value["destination_port"] == -1 ? [] : list[1]
+                content{
+                    min = tcp_ingress_iterator.value["destination_port"]
+                    max = tcp_ingress_iterator.value["destination_port"]
+                }
             }
         }
     }
@@ -128,13 +130,13 @@ resource "oci_core_security_list" "security_lists" {
             source_type = udp_ingress_iterator.value["source_type"]
             protocol =  17
             stateless = udp_ingress_iterator.value["stateless"]
-        }
 
-        dynamic "udp_options" {
-            for_each = udp_ingress_iterator.value["destination_port"] == -1 ? [] : list[1]
-            content{
-                min = udp_ingress_iterator.value["destination_port"]
-                max = udp_ingress_iterator.value["destination_port"]
+           dynamic "udp_options" {
+                for_each = udp_ingress_iterator.value["destination_port"] == -1 ? [] : list[1]
+                content{
+                    min = udp_ingress_iterator.value["destination_port"]
+                    max = udp_ingress_iterator.value["destination_port"]
+                }
             }
         }
     }
