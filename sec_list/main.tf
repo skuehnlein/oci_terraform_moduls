@@ -100,7 +100,7 @@ resource "oci_core_security_list" "security_lists" {
             stateless = tcp_ingress_iterator.value["stateless"]
         
             dynamic "tcp_options" {
-                for_each = tcp_ingress_iterator.value["destination_port"] == -1 ? [] : list[(1)
+                for_each = tcp_ingress_iterator.value["destination_port"] == -1 ? [] : list(1)
 
                 content{
                     min = tcp_ingress_iterator.value["destination_port"]
