@@ -39,6 +39,7 @@ resource "oci_core_security_list" "security_lists" {
             destination = tcp_egress_iterator.value["destination"]
             destination_type = tcp_egress_iterator.value["destination_type"]
             protocol =  6
+            stateless = tcp_egress_iterator.value["stateless"]
         }
 
         dynamic "tcp_options" {
@@ -59,6 +60,7 @@ resource "oci_core_security_list" "security_lists" {
             destination = icmp_egress_iterator.value["destination"]
             destination_type = icmp_egress_iterator.value["destination_type"]
             protocol =  1
+            stateless = icmp_egress_iterator.value["stateless"]
         }
     }
 
@@ -71,6 +73,7 @@ resource "oci_core_security_list" "security_lists" {
             destination = udp_egress_iterator.value["destination"]
             destination_type = udp_egress_iterator.value["destination_type"]
             protocol =  17
+            stateless = udp_egress_iterator.value["stateless"]
         }
 
         dynamic "udp_options" {
@@ -91,6 +94,7 @@ resource "oci_core_security_list" "security_lists" {
             source = tcp_ingress_iterator.value["source"]
             source_type = tcp_ingress_iterator.value["source_type"]
             protocol =  6
+            stateless = tcp_ingress_iterator.value["stateless"]
         }
 
         dynamic "tcp_options" {
@@ -110,6 +114,7 @@ resource "oci_core_security_list" "security_lists" {
             source = icmp_ingress_iterator.value["source"]
             source_type = icmp_ingress_iterator.value["source_type"]
             protocol =  1
+            stateless = icmp_ingress_iterator.value["stateless"]
         }
     }
 
@@ -122,6 +127,7 @@ resource "oci_core_security_list" "security_lists" {
             source = udp_ingress_iterator.value["source"]
             source_type = udp_ingress_iterator.value["source_type"]
             protocol =  17
+            stateless = udp_ingress_iterator.value["stateless"]
         }
 
         dynamic "udp_options" {
