@@ -41,9 +41,9 @@ resource "oci_core_security_list" "security_lists" {
             protocol =  6
             stateless = tcp_egress_iterator.value["stateless"]
         
-
             dynamic "tcp_options" {
                 for_each = tcp_egress_iterator.value["destination_port"] == -1 ? [] : list[1]
+
                 content{
                     min = tcp_egress_iterator.value["destination_port"]
                     max = tcp_egress_iterator.value["destination_port"]
@@ -79,6 +79,7 @@ resource "oci_core_security_list" "security_lists" {
 
            dynamic "udp_options" {
                 for_each = udp_egress_iterator.value["destination_port"] == -1 ? [] : list[1]
+
                 content{
                     min = udp_egress_iterator.value["destination_port"]
                     max = udp_egress_iterator.value["destination_port"]
@@ -100,6 +101,7 @@ resource "oci_core_security_list" "security_lists" {
         
             dynamic "tcp_options" {
                 for_each = tcp_ingress_iterator.value["destination_port"] == -1 ? [] : list[1]
+
                 content{
                     min = tcp_ingress_iterator.value["destination_port"]
                     max = tcp_ingress_iterator.value["destination_port"]
@@ -133,6 +135,7 @@ resource "oci_core_security_list" "security_lists" {
 
            dynamic "udp_options" {
                 for_each = udp_ingress_iterator.value["destination_port"] == -1 ? [] : list[1]
+                
                 content{
                     min = udp_ingress_iterator.value["destination_port"]
                     max = udp_ingress_iterator.value["destination_port"]
