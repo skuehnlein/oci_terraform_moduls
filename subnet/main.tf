@@ -27,7 +27,6 @@ resource "oci_core_subnet" "subnet" {
     cidr_block = var.subnet_cidr_block
     compartment_id = lookup(local.compartment_ids,var.compartment_name)
     vcn_id = var.vcn_OCID
-    cidr_block = var.subnet_cidr_block
 
     #Optional
     availability_domain = var.availability_domain
