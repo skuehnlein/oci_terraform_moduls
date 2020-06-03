@@ -59,7 +59,7 @@ variable "tcp_egress_rules" {
     type = list(object({
         description = string,
         destination = string,
-        destination_type = string
+        destination_type = string,
         destination_port = number,
         stateless = bool
 
@@ -72,7 +72,7 @@ variable "icmp_egress_rules" {
     type = list(object({
         description = string,
         destination = string,
-        destionation_type = string
+        destionation_type = string,
         stateless = bool
 
     }))
