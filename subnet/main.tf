@@ -34,6 +34,6 @@ resource "oci_core_subnet" "subnet" {
     dns_label = var.subnet_dns_label
     prohibit_public_ip_on_vnic = var.is_private_subnet
     route_table_id = var.route_table_OCID
-    security_lists_ids = var.security_list_OCIDs
+    security_list_ids = var.security_list_OCIDs
 
 }
