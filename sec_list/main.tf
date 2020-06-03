@@ -21,7 +21,7 @@ locals {
     compartment_ids = zipmap(data.oci_identity_compartments.compartments.compartments[*].name, data.oci_identity_compartments.compartments.compartments[*].id)
 }
 
-resource "oci_core_security_list" "security_lists" {
+resource "oci_core_security_list" "security_list" {
 
     # Required
     compartment_id = lookup(local.compartment_ids,var.compartment_name)
