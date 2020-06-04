@@ -39,7 +39,7 @@ resource "oci_core_route_table" "route_table" {
             #Optional
             description = route_rules.value["description"]
             destination = route_rules.value["destination"]
-            destionation_type = route_rules.value["destination_type"]
+            destination_type = route_rules.value["destination_type"]
         }
     }
 
