@@ -19,7 +19,6 @@ variable "route_rules" {
     description = "Route Rules for the route table"
     type = list(object({
         network_entity_id = string,
-        cidr_block = string,
         description = string,
         destination = string,
         destination_type = string

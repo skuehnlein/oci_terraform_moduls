@@ -37,7 +37,6 @@ resource "oci_core_route_table" "route_table" {
             network_entity_id = route_rules.value["network_entity_id"
 
             #Optional
-            cidr_block = route_rules.value["cidr_block"]
             description = route_rules.value["description"]
             destination = route_rules.value["destination"]
             destionation_type = route_rules.value["destination_type"]
