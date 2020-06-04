@@ -34,7 +34,7 @@ resource "oci_core_route_table" "route_table" {
 
         content {
             # Required
-            network_entity_id = route_rules.value["network_entity_id"
+            network_entity_id = route_rules.value["network_entity_id"]
 
             #Optional
             description = route_rules.value["description"]
