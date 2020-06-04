@@ -1,3 +1,8 @@
+variable "tenancy_OCID" {
+    description = "The OCID of the tenancy"
+    type = string
+}
+
 variable "compartment_name" {
     description = "Name of the compartment in which the resource will be created"
     type = string
