@@ -9,6 +9,11 @@ variable "tenancy_OCID" {
     type        = string
 }
 
+variable "region" {
+    description = "The short name of the region e.g. FRA for Frankfurt"
+    type        = string
+}
+
 # VCN Parameters
 variable "vcn_cidr" {
     description = "CIDR block of the VCN"
@@ -49,6 +54,8 @@ variable "intenet_gateway_display_name" {
     type        = string
 }
 
+# Service Gateway Parameters
+
 variable "create_service_gateway" {
     description = "Flag, whether to create a service gateway in the VCN"
     type        = bool
@@ -56,18 +63,22 @@ variable "create_service_gateway" {
 }
 
 variable "service_gateway_display_name" {
-    description = "Name for the Service Gateway"
+    description = "Name for the Service Gateway which will be shown in the OCI console"
     type        = string
 }
 
-
+# Dynamic Routing Gateway Parameters
 variable "create_dynamic_routing_gateway" {
-    description = "Flag, whether to create a service gateway in the VCN"
+    description = "Flag, whether to create a dynamic gateway in the VCN"
     type        = bool
     default     = false
 }
 
 variable "drg_display_name" {
-    description = "Name for the Dynamic Routing Gateway"
+    description = "Name for the Dynamic Routing Gateway which will be shown in the OCI console"
     type        = string
 }
+
+
+
+ 
